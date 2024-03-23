@@ -1,0 +1,56 @@
+create database db_group;
+
+use db_group;
+
+create table JOB_POSITION(
+	JOB_ID int primary key AUTO_INCREMENT,
+    NAME varchar(90) NOT NULL,
+    DESCRIPTION varchar(90)
+);
+
+create table SALES_LINE(
+    SALES_LINE_ID int primary key AUTO_INCREMENT,
+    DESCRIPTION varchar(90)
+);
+
+create table EMPLOYEE(
+	EMP_ID int primary key AUTO_INCREMENT,
+    NAME varchar(90) NOT NULL,
+    SURNAME varchar(90) NOT NULL,
+    SEX char(1) NOT NULL,
+    ID_CARD_NO varchar(20) NOT NULL,
+    BIRTH_DATE date NOT NULL,
+    WORK_START_DATE date NOT NULL,
+    ADDRESS varchar(255) NOT NULL,
+    JOB_ID int NOT NULL,
+    SALES_LINE_ID int NOT NULL,
+	FOREIGN KEY (JOB_ID) REFERENCES JOB_POSITION(JOB_ID),
+    FOREIGN KEY (SALES_LINE_ID) REFERENCES SALES_LINE(SALES_LINE_ID)
+);
+
+create table GUARANTOR(
+	EMP_ID int NOT NULL ,
+    GUARANTOR_ID int NOT NULL ,
+    PRIMARY KEY (EMP_ID, GUARANTOR_ID) ,
+    FOREIGN KEY (EMP_ID) REFERENCES EMPLOYEE(EMP_ID),
+    FOREIGN KEY (GUARANTOR_ID) REFERENCES EMPLOYEE(EMP_ID)
+);
+
+create table  STORE_TYPE(
+	STORE_TYPE_ID int primary key AUTO_INCREMENT,
+    NAME varchar(90) NOT NULL,
+    DESCRIPTION varchar(90)
+);
+
+create table CUSTOMER(
+	CUS_ID int primary key AUTO_INCREMENT,
+    OWNER_NAME varchar(90) NOT NULL,
+    ADDRESS varchar(255) NOT NULL,
+    VISIT_DATE varchar(20) NOT NULL,
+    LAST_VISIT date,
+    STORE_TYPE_ID int NOT NULL,
+    SALES_LINE_ID int NOT NULL,
+    FOREIGN KEY (STORE_TYPE_ID) REFERENCES STORE_TYPE(STORE_TYPE_ID),
+    FOREIGN KEY (SALES_LINE_ID) REFERENCES SALES_LINE(SALES_LINE_ID)
+);
+
