@@ -1,6 +1,6 @@
-create database db_group;
+create database JPK_COFFEE;
 
-use db_group;
+use JPK_COFFEE;
 
 create table JOB_POSITION(
 	JOB_ID int primary key AUTO_INCREMENT,
@@ -70,6 +70,7 @@ COMMENT = 'ประเภทสินค้า';
 
 create table STOCK(
     STOCK_ID int primary key AUTO_INCREMENT,
+    STOCK_PIC BLOB,
     STOCK_NAME varchar(90) NOT NULL,
     PRICE_BUY float NOT NULL,
     PRICE_SELL float NOT NULL,
@@ -93,6 +94,7 @@ COMMENT = 'ข้อมูลการนำเข้าสินค้า';
 create table STOCK_OUT(
     STOCK_OUT_ID int primary key AUTO_INCREMENT,
     STOCK_ID int NOT NULL,
+    STOCK_OUT_DATE date NOT NULL,
     EMP_ID int NOT NULL,
     AMOUNT float NOT NULL,
     FOREIGN KEY (STOCK_ID) REFERENCES STOCK(STOCK_ID),
@@ -121,3 +123,4 @@ create table ORDER_DETAIL(
     FOREIGN KEY (ORDER_ID) REFERENCES ORDERS(ORDER_ID)
 )
 COMMENT = 'รายละเอียดของ order';
+
