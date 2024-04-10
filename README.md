@@ -1,13 +1,13 @@
 # CS754
 DATABASE GROUP 
 
-# command
+## command
 
 **- install environment :** conda env create -f environment.yml
 
 **- active env :** conda activate advance-db
 
-# NOTE
+## NOTE
 
 **- Create project :** django-admin startproject <project-name>
 
