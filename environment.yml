@@ -1,0 +1,5 @@
+name: advance-db
+dependencies:
+  - python == 3.11.0
+  - pip:
+    - Django == 4.1.3
