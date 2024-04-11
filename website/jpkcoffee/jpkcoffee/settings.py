@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-s=6@tzocp_($uih&@2+@$i3j$jck(coij5c(--r-5676h+v%=k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['socially-pleased-macaque.ngrok-free.app']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "home"
 ]
 
 MIDDLEWARE = [
