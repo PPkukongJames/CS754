@@ -64,9 +64,9 @@ create table SALEMAN(
 	EmpID int PRIMARY KEY,
     DrivingLicenseNo varchar(90) NOT NULL,
     DrivingLicenseExpiredDate date NOT NULL,
-    Supeevision int NOT NULL,
+    Supervision int NOT NULL,
     FOREIGN KEY (EmpID) REFERENCES EMPLOYEE(EmpID),
-    FOREIGN KEY (Supeevision) REFERENCES SALEMAN(EmpID)
+    FOREIGN KEY (Supervision) REFERENCES SALEMAN(EmpID)
 )
 COMMENT = '';
 
