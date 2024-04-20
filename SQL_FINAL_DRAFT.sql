@@ -130,9 +130,11 @@ create table STOCK_WAREHOUSE(
     DateIn date NOT NULL,
     AmountWH float NOT NULL,
     ManagerID int NOT NULL,
+    SalemanID int NOT NULL,
     PRIMARY KEY (ProductID, DateIn),
     FOREIGN KEY (ProductID) REFERENCES PRODUCT(ProductID),
-    FOREIGN KEY (ManagerID) REFERENCES MANAGER(EmpID)
+    FOREIGN KEY (ManagerID) REFERENCES MANAGER(EmpID),
+    FOREIGN KEY (SalemanID) REFERENCES SALEMAN(EmpID)
 )COMMENT = '';
 
 create table STOCK_OUT(
