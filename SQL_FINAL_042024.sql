@@ -131,11 +131,9 @@ create table STOCK_WAREHOUSE(
     DateIn date NOT NULL,
     AmountWH float NOT NULL,
     ManagerID int NOT NULL,
-    SalemanID int NOT NULL,
     PRIMARY KEY (ProductID, DateIn),
     FOREIGN KEY (ProductID) REFERENCES PRODUCT(ProductID),
-    FOREIGN KEY (ManagerID) REFERENCES MANAGER(EmpID),
-    FOREIGN KEY (SalemanID) REFERENCES SALEMAN(EmpID)
+    FOREIGN KEY (ManagerID) REFERENCES MANAGER(EmpID)
 )COMMENT = '';
 
 create table STOCK_OUT(
@@ -143,9 +141,11 @@ create table STOCK_OUT(
     DateOut date NOT NULL,
     Quantity float NOT NULL,
     WarehouseWorkerID int NOT NULL,
+    SalemanID int NOT NULL,
     PRIMARY KEY (ProductID, DateOut),
     FOREIGN KEY (ProductID) REFERENCES PRODUCT(ProductID),
-    FOREIGN KEY (WarehouseWorkerID) REFERENCES WAREHOUSE_WORKER(EmpID)
+    FOREIGN KEY (WarehouseWorkerID) REFERENCES WAREHOUSE_WORKER(EmpID),
+    FOREIGN KEY (SalemanID) REFERENCES SALEMAN(EmpID)
 )COMMENT = '';
 
 create table GENERATE(
