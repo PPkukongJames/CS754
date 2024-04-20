@@ -73,6 +73,7 @@ COMMENT = '';
 create table VAN(
     PlateNo int PRIMARY KEY AUTO_INCREMENT,
     StartDate date NOT NULL,
+    Inchargeof date NOT NULL, 
 	SalemanID int NOT NULL,
     FOREIGN KEY (SalemanID) REFERENCES SALEMAN(EmpID)
 )

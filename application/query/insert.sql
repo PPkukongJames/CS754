@@ -42,8 +42,8 @@ addSaleman{
 }
 
 addVan{
-    INSERT INTO DB_NAME.VAN (PlateNo,StartDate,,SalemanID) 
-    VALUES(%s,%s,%s)
+    INSERT INTO DB_NAME.VAN (PlateNo,StartDate,Inchargeof,SalemanID) 
+    VALUES(%s,%s,%s,%s)
 }
 
 addCus{
