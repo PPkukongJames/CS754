@@ -1,18 +1,23 @@
 minusLeaveDate{
     UPDATE DB_NAME.EMPLOYEE
-    SET LeaveDay = ?
-    WHERE EmpID = ?;
+    SET LeaveDay = %s
+    WHERE EmpID = %s
 }
 
 changeSalary{
     UPDATE DB_NAME.EMPLOYEE
-    SET Salary = ?
-    WHERE EmpID = ?;
+    SET Salary = %s
+    WHERE EmpID = %s
 }
 
 changeNameEmp{
     UPDATE DB_NAME.EMPLOYEE
-    SET EmpName = ?
-    WHERE EmpID = ?;
+    SET EmpName = %s
+    WHERE EmpID = %s
+}
+changePhoneCus{
+    UPDATE DB_NAME.CUSTOMER
+    SET PhoneNum = %s
+    WHERE CusID = %s
 }
 
