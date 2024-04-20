@@ -29,11 +29,11 @@ def prepare_query(query_template, values):
     placeholders = query_template.count("%s")
     if placeholders != len(values):
         raise ValueError("The number of placeholders does not match the number of values.")
-
+    temp_val = ["'"+val+"'" if type(val) == str else val for val in values ]
     # Replace the placeholders with the actual values
     # This is NOT safe for real queries, as it does not escape the values,
     # and should only be used for display purposes.
-    escaped_values = tuple(map(mysql.connector.conversion.MySQLConverter().escape, values))
+    escaped_values = tuple(map(mysql.connector.conversion.MySQLConverter().escape, temp_val))
     query = query_template % escaped_values
 
     return query.replace('DB_NAME','jpk_coffee')
