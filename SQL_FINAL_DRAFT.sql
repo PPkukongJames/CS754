@@ -11,7 +11,7 @@ create table EMPLOYEE(
     BirthDate date NOT NULL,
     StartDate date NOT NULL,
     Salary DECIMAL(9,2) NOT NULL,
-    LeaveDay char(1)
+    LeaveDay smallint NOT NULL
 )
 COMMENT = 'รายละเอียดพนักงาน';
 
