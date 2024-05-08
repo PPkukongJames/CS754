@@ -15,7 +15,7 @@ def extract_query(method,key):
         sql_file_content = file.read()
     pattern = re.compile(rf'{key}\s*\{{\s*([^}}]+)\s*\}}', re.DOTALL)
     match = pattern.search(sql_file_content)
-    return match.group(1).strip() if match else None
+    return match.group(1).strip().replace('DB_NAME','jpk_coffee') if match else None
 
 def prepare_query(query_template, values):
     """ 

@@ -38,12 +38,17 @@ addWarehouseWorker{
 
 addSaleman{
     INSERT INTO DB_NAME.SALEMAN (EmpID,DrivingLicenseNo,DrivingLicenseExpiredDate,Supervision) 
-    VALUES(%s)
+    VALUES(%s,%s,%s,%s)
 }
 
 addVan{
     INSERT INTO DB_NAME.VAN (PlateNo,StartDate,Inchargeof,SalemanID) 
     VALUES(%s,%s,%s,%s)
+}
+
+addMaintainanceDate{
+    INSERT INTO DB_NAME.MAINTAINANCE_DATE (PlateNo,MaintainanceDate) 
+    VALUES(%s,%s)
 }
 
 addCus{
@@ -55,3 +60,4 @@ addProduct{
     INSERT INTO DB_NAME.PRODUCT (ProductID,ImageProduct,CostPerUnit,Pname,IncentiveRate,SellPrice) 
     VALUES(%s,%s,%s,%s,%s,%s)
 }
+

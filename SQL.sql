@@ -29,15 +29,15 @@ COMMENT = '';
 
 create table TRAINEE(
 	EmpID int PRIMARY KEY,
-    ForPosition int NOT NULL,
-    ProbationDuration varchar(90) NOT NULL,
+    ForPosition varchar(90) NOT NULL,
+    ProbationDuration int NOT NULL,
     FOREIGN KEY (EmpID) REFERENCES EMPLOYEE(EmpID)
 )
 COMMENT = '';
 
 create table SECURITY_GUARD(
     EmpID int PRIMARY KEY,
-    SHIFT varchar(90) NOT NULL,
+    SHIFT DECIMAL(9,2) NOT NULL,
     FOREIGN KEY (EmpID) REFERENCES EMPLOYEE(EmpID)
 )
 COMMENT = '';
@@ -65,13 +65,12 @@ create table SALEMAN(
     DrivingLicenseNo varchar(90) NOT NULL,
     DrivingLicenseExpiredDate date NOT NULL,
     Supervision int NOT NULL,
-    FOREIGN KEY (EmpID) REFERENCES EMPLOYEE(EmpID),
-    FOREIGN KEY (Supervision) REFERENCES SALEMAN(EmpID)
+    FOREIGN KEY (EmpID) REFERENCES EMPLOYEE(EmpID)
 )
 COMMENT = '';
 
 create table VAN(
-    PlateNo int PRIMARY KEY AUTO_INCREMENT,
+    PlateNo varchar(90) PRIMARY KEY,
     StartDate date NOT NULL,
     Inchargeof date NOT NULL, 
 	SalemanID int NOT NULL,
@@ -80,7 +79,7 @@ create table VAN(
 COMMENT = '';
 
 create table MAINTAINANCE_DATE(
-    PlateNo int NOT NULL ,
+    PlateNo varchar(90) NOT NULL ,
     MaintainanceDate date NOT NULL,
     PRIMARY KEY (PlateNo, MaintainanceDate),
     FOREIGN KEY (PlateNo) REFERENCES VAN(PlateNo)
@@ -157,3 +156,6 @@ create table GENERATE(
     FOREIGN KEY (AdminId) REFERENCES ADMIN(EmpID)
 )COMMENT = '';
 
+ALTER TABLE jpk_coffee.EMPLOYEE MODIFY ImageEmp MEDIUMBLOB;
+
+ALTER TABLE jpk_coffee.PRODUCT MODIFY ImageProduct MEDIUMBLOB;
