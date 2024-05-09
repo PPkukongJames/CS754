@@ -60,3 +60,30 @@ workMoreNYear{
     FROM DB_NAME.EMPLOYEE EMP
     Where CURDATE() > DATE_ADD(EMP.StartDate, INTERVAL %s YEAR)
 }
+
+cusTopSpender{
+    SELECT LR.CusID,CUS.CusName,LR.TotalPrice
+    FROM (
+        SELECT CUS_DATA.CusID,
+            SUM(CUS_DATA.AmountOrder*SellPrice) AS TotalPrice
+        FROM(
+            SELECT CUS_RESULT.PurchaseOrderID,CUS_RESULT.OrderDate,CUS_RESULT.CusID,CUS_RESULT.ProductID
+                    ,CUS_RESULT.AmountOrder,PRO.SellPrice
+            FROM(
+                SELECT PUR.PurchaseOrderID,PUR.OrderDate,PUR.CusID,PUR_DETAIL.ProductID,PUR_DETAIL.AmountOrder
+                FROM jpk_coffee.PURCHASE_ORDER PUR
+                INNER JOIN jpk_coffee.Purchase_ORDER_DETAIL PUR_DETAIL
+                ON PUR_DETAIL.PurchaseOrderID = PUR.PurchaseOrderID
+            ) AS CUS_RESULT
+            INNER JOIN jpk_coffee.PRODUCT PRO
+            ON PRO.ProductID = CUS_RESULT.ProductID
+            WHERE MONTH(CUS_RESULT.OrderDate) = %s
+            AND YEAR(CUS_RESULT.OrderDate) = %s
+        ) AS CUS_DATA
+        GROUP BY CusID
+        ORDER BY TotalPrice DESC
+        LIMIT 3
+    ) AS LR
+    LEFT JOIN jpk_coffee.CUSTOMER CUS
+    ON CUS.CusID = LR.CusID;
+}
