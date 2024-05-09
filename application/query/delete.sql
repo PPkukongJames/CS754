@@ -19,10 +19,10 @@ delPurDetail{
 
 delGen{
     DELETE FROM jpk_coffee.GENERATE
-    WHERE PurchaseOrderID = 10
+    WHERE PurchaseOrderID = %s
 }
 
 delPurOr{
     DELETE FROM jpk_coffee.PURCHASE_ORDER
-    WHERE PurchaseOrderID = 10
+    WHERE PurchaseOrderID = %s
 }

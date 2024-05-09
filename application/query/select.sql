@@ -85,5 +85,5 @@ cusTopSpender{
         LIMIT 3
     ) AS LR
     LEFT JOIN jpk_coffee.CUSTOMER CUS
-    ON CUS.CusID = LR.CusID;
+    ON CUS.CusID = LR.CusID
 }
