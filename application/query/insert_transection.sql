@@ -14,13 +14,13 @@ addPurchaseOrderDetail{
 }
 
 addStockWarehouse{
-    INSERT INTO DB_NAME.STOCK_WAREHOUSE (ProductID,DateIn,AmountWH,ManagerID,SalemanID)
-    VALUES(%s,%s,%s,%s,%s)
+    INSERT INTO DB_NAME.STOCK_WAREHOUSE (ProductID,DateIn,AmountWH,ManagerID)
+    VALUES(%s,%s,%s,%s)
 }
 
 addStockOut{
-    INSERT INTO DB_NAME.STOCK_WAREHOUSE (ProductID,DateOut,Quantity,WarehouseWorkerID)
-    VALUES(%s,%s,%s,%s)
+    INSERT INTO DB_NAME.STOCK_OUT (ProductID,DateOut,Quantity,WarehouseWorkerID,SalemanID)
+    VALUES(%s,%s,%s,%s,%s)
 }
 
 addGenerate{

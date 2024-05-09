@@ -52,12 +52,12 @@ addMaintainanceDate{
 }
 
 addCus{
-    INSERT INTO DB_NAME.MAINTAINANCE_DATE (CusID,CusName,PhoneNum,Latitude,Longtitude,VisitDay,SalemanID) 
+    INSERT INTO DB_NAME.CUSTOMER (CusID,CusName,PhoneNum,Latitude,Longtitude,VisitDay,SalemanID) 
     VALUES(%s,%s,%s,%s,%s,%s,%s)
 }
 
 addProduct{
-    INSERT INTO DB_NAME.PRODUCT (ProductID,ImageProduct,CostPerUnit,Pname,IncentiveRate,SellPrice) 
+    INSERT INTO DB_NAME.PRODUCT (ProductID,ImageProduct,Pname,CostPerUnit,SellPrice,IncentiveRate) 
     VALUES(%s,%s,%s,%s,%s,%s)
 }
 
